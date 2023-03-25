@@ -52,6 +52,8 @@ $('.saveBtn').click(function (event) {
   event.preventDefault();
   var eventTask = $(this).siblings('.description').val();
   console.log(eventTask);
+  var eventTime = $(this).siblings('id').split('-')[1];
+  console.log(eventTime);
 })
 
 $(function () {
