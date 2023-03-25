@@ -33,7 +33,17 @@ var timeBlocks = $('.time-block');
 
 timeBlocks.each(function () {
   console.log(this.id);
-})
+  var blockId = parseInt(this.id.split('-')[1]);
+  console.log(blockId);
+
+  if (blockId < currentTime) {
+    $(this).addClass('past');
+  } else if (blockId === currentTime) {
+    $(this).addClass('present');
+  } else {
+    $(this).addClass('future');
+  }
+});
 
 
 $(function () {
