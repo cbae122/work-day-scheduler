@@ -48,9 +48,10 @@ timeBlocks.each(function () {
 });
 
 //saving data to local storage
-$('.saveBtn').click(function () {
-  var eventTask = $(this).siblings('.description').value();
-  console.log(eventTask);  
+$('.saveBtn').click(function (event) {
+  event.preventDefault();
+  var eventTask = $(this).siblings('.description').val();
+  console.log(eventTask);
 })
 
 $(function () {
