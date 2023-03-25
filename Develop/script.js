@@ -1,77 +1,10 @@
-// GIVEN I am using a daily planner to create a schedule
-// WHEN I open the planner
-// THEN the current day is displayed at the top of the calendar
-// WHEN I scroll down
-// THEN I am presented with time blocks for standard business hours
-// WHEN I view the time blocks for that day
-// THEN each time block is color-coded to indicate whether it is in the past, present, or future
-// WHEN I click into a time block
-// THEN I can enter an event
-// WHEN I click the save button for that time block
-// THEN the text for that event is saved in local storage
-// WHEN I refresh the page
-// THEN the saved events persist
-
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
+var saveBtnEl = document.querySelector('.saveBtn')
 var currentTime = dayjs().hour()
 console.log(currentTime);
-var saveBtnEl = document.querySelector('.saveBtn')
-
-// important BOM elements
-
-// //display day
-var currentDayEl = $('#currentDay');
-function displayTime() {
-  var rightNow = dayjs().format('dddd, MMMM D');
-  currentDayEl.text(rightNow);
-};
-displayTime();
-
-
-//timeblocks - changes the block of time based on past, present and future time to give color. 
-var timeBlocks = $('.time-block');
-
-timeBlocks.each(function () {
-  console.log(this.id);
-  var blockId = parseInt(this.id.split('-')[1]);
-  console.log(blockId);
-
-  if (blockId < currentTime) {
-    $(this).addClass('past');
-  } else if (blockId === currentTime) {
-    $(this).addClass('present');
-  } else {
-    $(this).addClass('future');
-  }
-});
-
-//saving data to local storage
-$('.saveBtn').click(function (event) {
-  event.preventDefault();
-  var eventTask = $(this).siblings('.description').val();
-  console.log(eventTask);
-  var eventTime = $(this).parent().attr('id').split('-')[1];
-  console.log(eventTime);
-
-  localStorage.setItem(eventTime, eventTask);
-})
-
-//getting data from local storage
-$('#hour-9 .time-block').val(localStorage.getItem('9'));
-$('#hour-10 .time-block').val(localStorage.getItem('10'));
-$('#hour-11 .time-block').val(localStorage.getItem('11'));
-$('#hour-12 .time-block').val(localStorage.getItem('12'));
-$('#hour-13 .time-block').val(localStorage.getItem('13'));
-$('#hour-14 .time-block').val(localStorage.getItem('14'));
-$('#hour-15 .time-block').val(localStorage.getItem('15'));
-$('#hour-16 .time-block').val(localStorage.getItem('16'));
-$('#hour-17.time-block').val(localStorage.getItem('17'));
-
-
-// $('#currentDay').text(dayjs().format('dddd, MMMM D YYYY'));
 
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
@@ -93,5 +26,54 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 
-$('#currentDay').text(dayjs().format('dddd, MMMM D YYYY'));
+  //display day
+  // var currentDayEl = $('#currentDay');
+  //   function displayTime() {
+  //   var rightNow = dayjs().format('dddd, MMMM D');
+  //   currentDayEl.text(rightNow);
+  // };
+
+//saving data to local storage
+  $('.saveBtn').click(function (event) {
+    event.preventDefault();
+    var eventTask = $(this).siblings('.description').val();
+    console.log(eventTask);
+    var eventTime = $(this).parent().attr('id').split('-')[1];
+    console.log(eventTime);
+
+    localStorage.setItem(eventTime, eventTask);
+  });
+
+  $('#currentDay').text(dayjs().format('dddd, MMMM D YYYY'));
+
+//getting data from local storage
+  $('#hour-9 .time-block').val(localStorage.getItem('9'));
+  $('#hour-10 .time-block').val(localStorage.getItem('10'));
+  $('#hour-11 .time-block').val(localStorage.getItem('11'));
+  $('#hour-12 .time-block').val(localStorage.getItem('12'));
+  $('#hour-13 .time-block').val(localStorage.getItem('13'));
+  $('#hour-14 .time-block').val(localStorage.getItem('14'));
+  $('#hour-15 .time-block').val(localStorage.getItem('15'));
+  $('#hour-16 .time-block').val(localStorage.getItem('16'));
+  $('#hour-17.time-block').val(localStorage.getItem('17'));
+
+//timeblocks - changes the block of time based on past, present and future time to give color. 
+var timeBlocks = $('.time-block');
+
+  timeBlocks.each(function () {
+    // console.log(this.id);
+    var blockId = parseInt(this.id.split('-')[1]);
+    // console.log(blockId);
+
+    if (blockId < currentTime) {
+      $(this).addClass('past');
+    } else if (blockId === currentTime) {
+      $(this).addClass('present');
+    } else {
+      $(this).addClass('future');
+    }
+});
+
+  // displayTime();
+
 });
