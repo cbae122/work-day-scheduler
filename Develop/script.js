@@ -37,25 +37,22 @@ $(function () {
   $('.saveBtn').click(function (event) {
     event.preventDefault();
     var eventTask = $(this).siblings('.description').val();
-    console.log(eventTask);
     var eventTime = $(this).parent().attr('id').split('-')[1];
-    console.log(eventTime);
-
     localStorage.setItem(eventTime, eventTask);
   });
 
   $('#currentDay').text(dayjs().format('dddd, MMMM D YYYY'));
 
 //getting data from local storage
-  $('#hour-9 .time-block').val(localStorage.getItem('9'));
-  $('#hour-10 .time-block').val(localStorage.getItem('10'));
-  $('#hour-11 .time-block').val(localStorage.getItem('11'));
-  $('#hour-12 .time-block').val(localStorage.getItem('12'));
-  $('#hour-13 .time-block').val(localStorage.getItem('13'));
-  $('#hour-14 .time-block').val(localStorage.getItem('14'));
-  $('#hour-15 .time-block').val(localStorage.getItem('15'));
-  $('#hour-16 .time-block').val(localStorage.getItem('16'));
-  $('#hour-17.time-block').val(localStorage.getItem('17'));
+  $('#hour-9 .description').val(localStorage.getItem('9'));
+  $('#hour-10 .description').val(localStorage.getItem('10'));
+  $('#hour-11 .description').val(localStorage.getItem('11'));
+  $('#hour-12 .description').val(localStorage.getItem('12'));
+  $('#hour-13 .description').val(localStorage.getItem('13'));
+  $('#hour-14 .description').val(localStorage.getItem('14'));
+  $('#hour-15 .description').val(localStorage.getItem('15'));
+  $('#hour-16 .description').val(localStorage.getItem('16'));
+  $('#hour-17 .description').val(localStorage.getItem('17'));
 
 //timeblocks - changes the block of time based on past, present and future time to give color. 
 var timeBlocks = $('.time-block');
