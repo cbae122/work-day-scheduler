@@ -18,16 +18,17 @@
 
 var currentTime = dayjs().hour()
 console.log(currentTime);
+var saveBtnEl = document.querySelector('.saveBtn')
 
 // important BOM elements
 
 // //display day
-// var currentDayEl = $('#currentDay');
-// function displayTime() {
-//   var rightNow = dayjs().format('dddd, MMMM D');
-//   currentDayEl.text(rightNow);
-// };
-// displayTime();
+var currentDayEl = $('#currentDay');
+function displayTime() {
+  var rightNow = dayjs().format('dddd, MMMM D');
+  currentDayEl.text(rightNow);
+};
+displayTime();
 
 
 //timeblocks - changes the block of time based on past, present and future time to give color. 
@@ -55,8 +56,13 @@ $('.saveBtn').click(function (event) {
   var eventTime = $(this).parent().attr('id').split('-')[1];
   console.log(eventTime);
 
-  localStorage.setItem(eventTask, eventTime);
+  localStorage.setItem(eventTime, eventTask);
 })
+
+//getting data from local storage
+$('#hour-9 .time-block').val(localStorage.getItem('9'));
+
+// $('#currentDay').text(dayjs().format('dddd, MMMM D YYYY'));
 
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
