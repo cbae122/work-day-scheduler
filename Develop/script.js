@@ -29,6 +29,8 @@ console.log(currentTime);
 // };
 // displayTime();
 
+
+//timeblocks - changes the block of time based on past, present and future time to give color. 
 var timeBlocks = $('.time-block');
 
 timeBlocks.each(function () {
@@ -45,6 +47,11 @@ timeBlocks.each(function () {
   }
 });
 
+//saving data to local storage
+$('.saveBtn').click(function () {
+  var eventTask = $(this).siblings('.description').value();
+  console.log(eventTask);  
+})
 
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
