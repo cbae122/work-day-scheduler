@@ -14,7 +14,7 @@
 - You can come back later in the day to the page and your task will still be there
 - See screenshot below as example
 
-![work day scheduler.](/Image%203-26-23%20at%204.29%20PM.jpg)
+![work day scheduler.](./Assets/images/Image%203-26-23%20at%204.29%20PM.jpg)
 
 ## Website Link
 - https://cbae122.github.io/work-day-scheduler/
