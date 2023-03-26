@@ -14,10 +14,10 @@
 - You can come back later in the day to the page and your task will still be there
 - See screenshot below as example
 
-![Random password generator.](/Image%203-26-23%20at%204.29%20PM.jpg)
+![work day scheduler.](/Image%203-26-23%20at%204.29%20PM.jpg)
 
 ## Website Link
-- https://cbae122.github.io/password-generator/
+- https://cbae122.github.io/work-day-scheduler/
 
 ## Credits
 - Instructor Diarmuid Murphy - during office hours, reviewed broken codes and provided solutions 
